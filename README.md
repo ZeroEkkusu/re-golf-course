@@ -2,10 +2,6 @@
 
 Proof-of-concept [Golf Course](https://github.com/Rari-Capital/golf-course) reimagined with [`GClub`](src/utils/GClub.sol) and a golf theme.
 
-**We're closed!**
-<br>
-The main purpose of the repo was to test `GClub`'s capabilities.
-
 ## Table of contents
   - [Tips](#tips)
     - [Caddie](#-caddie)
