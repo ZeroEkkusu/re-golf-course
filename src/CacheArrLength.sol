@@ -2,9 +2,9 @@
 
 pragma solidity ^0.8.11;
 
-import "optimizooors-lab/GFlask.sol";
+import "src/utils/GClub.sol";
 
-contract CacheArrLength is GFlask {
+contract CacheArrLength is GClub {
     uint256[] public arr = [uint256(1), 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
     function _cacheArrLength() public unoptimized {
@@ -16,7 +16,7 @@ contract CacheArrLength is GFlask {
         for (uint256 index; index < arrLength; ++index) {}
     }
 
-    function test() public {
+    function testCacheArrayLength() public {
         _cacheArrLength();
         cacheArrLength();
     }
