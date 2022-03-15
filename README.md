@@ -1,6 +1,11 @@
 # ⛳ Re:Golf Course
 
-Proof-of-concept [Golf Course](https://github.com/Rari-Capital/golf-course) reimagined with [`GClub`](src/utils/GClub.sol) and a golf theme.
+<div style="width: fit-content; height: fit-content">
+A list of common Solidity optimization tips and myths.
+<div style="text-align:right;">
+<sub>- Transmissions Eleven, 2021<sub>
+</div>
+</div>
 
 ## Table of contents
   - [Tips](#tips)
@@ -9,40 +14,14 @@ Proof-of-concept [Golf Course](https://github.com/Rari-Capital/golf-course) reim
     - [World Champ](#-world-champ)
   - [Myths](#myths)
 
-## Tips
+# Tips
 
-### 🧒 Caddie
+## 🧒 Caddie
 
-#### Use `uint` instead of `bool` for reentrancy guard
-
-The initial `SSTORE` of `true` in the unoptimized version costs over 20,000 gas while the second SSTORE of `false` costs only 100.  But both `SSTORE` (for `2` and `1`) cost only 100 gas.
-
-  - [Full Example](src/Reentrancy.sol)
-
-```solidity
-// 🚩 Unoptimized
-bool private locked = false;
-modifier nonReentrant() {
-    require(locked == false, "REENTRANCY");
-    locked = true;
-    _;
-    locked = false;
-}
-
-
-// 🏌️ Optimized (-20000 gas)
-bool private locked = 1;
-modifier nonReentrant() {
-    require(locked == 1, "REENTRANCY");
-    locked = 2;
-    _;
-    locked = 1;
-}
-```
-
-#### When iterating through a storage array, cache the array length first
+### When iterating through a storage array, cache the array length first
 
 Caching the array length first saves an `SLOAD` on each iteration of the loop.
+
   - [Full Example](src/CacheArrLength.sol)
 
 ```solidity
@@ -56,13 +35,13 @@ uint256 arrLength = arr.length;
 for (uint256 index; index < arrLength; ++index) {}
 ```
 
-### 🧤 Golf Pro
+## 🧤 Golf Pro
 
-#### Make functions `payable`
+### Make functions `payable`
 
 Making functions `payable` eliminates the need for an initial check of `msg.value == 0` and saves 21 gas.
 
-**Note:** This conservatively assumes the function could be `pure` if not for the `payable`.  When compared against a non-`pure` function the savings is more (24 gas). When used for a constructor, the savings is on deployment.
+**Note:** This conservatively assumes the function could be `pure` if not for the `payable`.  When compared against a non-`pure` function the savings is 24 gas. When used with a constructor, the savings is on deployment.
 
 Adding a `payable` function where none existed previously could introduce a security risk. Use with caution.
 
@@ -76,15 +55,13 @@ function doSomething() public {}
 function doSomething() payable public {}
 ```
 
-### 🏆 World Champ
+## 🏆 World Champ
 
-#### Function ordering
+### Prioritize functions by lowering Method ID
 
-The compiler orders public and external members of a contract by their Method ID.
+The compiler orders public and external members by their Method ID.
 
-Calling a function at runtime will be cheaper if the function is positioned earlier in the order (has a relatively lower Method ID) because 22 gas are added to the cost of a function for every position that came before it. The average caller will save on gas if you prioritize most called functions.
-
-[This tool](https://emn178.github.io/solidity-optimize-name/) helps you find alternative function names with lower Method IDs.
+Calling a function at runtime will be cheaper if the function is positioned earlier in the order (has a relatively lower Method ID) because 22 gas are added to the cost for every position that came before it. The average caller will save on gas if you prioritize most called functions.
 
 - [Full Example](src/FunctionOrdering.sol)
 
@@ -113,10 +90,4 @@ function leastCalled() public {}
 // Method ID: 0x24de5553  (position: 3, gas:  142)
 ```
 
-## Myths
-
-#### Contract names cannot affect gas costs
-
-*Taking a break from all the golfing...*
-
-![Contract names](./images/contract_names.jpg)
+# Myths
