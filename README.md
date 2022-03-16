@@ -22,7 +22,7 @@ A list of common Solidity optimization tips and myths.
 
 Caching the array length first saves an `SLOAD` on each iteration of the loop.
 
-  - [Full Example](src/CacheArrLength.sol)
+  - [Full Example](samples/CacheArrLength.sol)
 
 ```solidity
 uint256[] public arr = [uint256(1), 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -45,7 +45,7 @@ Making functions `payable` eliminates the need for an initial check of `msg.valu
 
 Adding a `payable` function where none existed previously could introduce a security risk. Use with caution.
 
-  - [Full Example](src/PayableFunctions.sol)
+  - [Full Example](samples/PayableFunctions.sol)
 
 ```solidity
 // 🚩 Unoptimized
@@ -63,7 +63,7 @@ The compiler orders public and external members by their Method ID.
 
 Calling a function at runtime will be cheaper if the function is positioned earlier in the order (has a relatively lower Method ID) because 22 gas are added to the cost for every position that came before it. The average caller will save on gas if you prioritize most called functions.
 
-- [Full Example](src/FunctionOrdering.sol)
+- [Full Example](samples/FunctionOrdering.sol)
 
 ```solidity
 // 🚩 Unoptimized
