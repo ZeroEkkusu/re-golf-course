@@ -1,21 +1,21 @@
 // SPDX-License-Identifier: Unlicense
 
+pragma solidity 0.8.11;
+
 // Welcome to the 🧪 Optimizooor's Lab!
 //
 // Get started:
-// 1. Set  Solidity version below
+// 1. Set  Solidity version above
 // 2. Set `optimizer`       in `foundry.toml`
 // 3. Set `optimizer_runs`  in `foundry.toml`
 //
 // Optimize! Run experiments with `forge test`.
 
-// Experiment name: Payable Functions
+// Samples for: PayableFunctions
 
-pragma solidity 0.8.11;
+contract SharedSetup is Methods {
 
-import "src/biohazard/Methods.sol";
-
-contract SharedSetup is Methods {}
+}
 
 contract Sample0 is SharedSetup {
     function unoptimized() public {
@@ -56,3 +56,5 @@ abstract contract Labels {
     string label4 = "";
     string label5 = "";
 }
+
+import "src/biohazard/Methods.sol";

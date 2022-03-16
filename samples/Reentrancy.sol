@@ -1,21 +1,21 @@
 // SPDX-License-Identifier: Unlicense
 
+pragma solidity 0.8.11;
+
 // Welcome to the 🧪 Optimizooor's Lab!
 //
 // Get started:
-// 1. Set  Solidity version below
+// 1. Set  Solidity version above
 // 2. Set `optimizer`       in `foundry.toml`
 // 3. Set `optimizer_runs`  in `foundry.toml`
 //
 // Optimize! Run experiments with `forge test`.
 
-// Experiment name: Reentrancy
+// Samples for: Reentrancy
 
-pragma solidity 0.8.11;
+contract SharedSetup is Methods {
 
-import "src/biohazard/Methods.sol";
-
-contract SharedSetup is Methods {}
+}
 
 contract Sample0 is SharedSetup {
     bool private locked = false;
@@ -27,7 +27,7 @@ contract Sample0 is SharedSetup {
         locked = false;
     }
 
-    function unoptimized() external nonReentrant returns (uint256 amount3) {}
+    function unoptimized() external nonReentrant {}
 }
 
 contract Sample1 is SharedSetup {
@@ -40,7 +40,7 @@ contract Sample1 is SharedSetup {
         locked = 1;
     }
 
-    function optimized() external nonReentrant returns (uint256 amount3) {}
+    function optimized() external nonReentrant {}
 }
 
 contract Sample2 is SharedSetup {
@@ -70,3 +70,5 @@ abstract contract Labels {
     string label4 = "";
     string label5 = "";
 }
+
+import "src/biohazard/Methods.sol";

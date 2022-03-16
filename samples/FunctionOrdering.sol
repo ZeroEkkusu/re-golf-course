@@ -1,17 +1,17 @@
 // SPDX-License-Identifier: Unlicense
 
+pragma solidity 0.8.11;
+
 // Welcome to the 🧪 Optimizooor's Lab!
 //
 // Get started:
-// 1. Set  Solidity version below
+// 1. Set  Solidity version above
 // 2. Set `optimizer`       in `foundry.toml`
 // 3. Set `optimizer_runs`  in `foundry.toml`
 //
 // Optimize! Run experiments with `forge test`.
 
-// Experiment name: Function Ordering
-
-pragma solidity 0.8.11;
+// Samples for: FunctionOrdering
 
 import "src/biohazard/Methods.sol";
 
@@ -92,3 +92,5 @@ abstract contract Labels {
     string label4 = "";
     string label5 = "";
 }
+
+import "src/biohazard/Methods.sol";
