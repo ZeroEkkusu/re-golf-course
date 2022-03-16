@@ -17,6 +17,7 @@ contract SharedSetup is Methods {
 
 }
 
+// Unoptimized sample
 contract Sample0 is SharedSetup {
     bool private locked = false;
 
@@ -27,7 +28,7 @@ contract Sample0 is SharedSetup {
         locked = false;
     }
 
-    function unoptimized() external nonReentrant {}
+    function measureGas() external nonReentrant {}
 }
 
 contract Sample1 is SharedSetup {
@@ -40,28 +41,28 @@ contract Sample1 is SharedSetup {
         locked = 1;
     }
 
-    function optimized() external nonReentrant {}
+    function measureGas() external nonReentrant {}
 }
 
 contract Sample2 is SharedSetup {
-    function optimized() external {}
+    function measureGas() external {}
 }
 
 contract Sample3 is SharedSetup {
-    function optimized() external {}
+    function measureGas() external {}
 }
 
 contract Sample4 is SharedSetup {
-    function optimized() external {}
+    function measureGas() external {}
 }
 
 contract Sample5 is SharedSetup {
-    function optimized() external {}
+    function measureGas() external {}
 }
 
 // Generated from https://github.com/ZeroEkkusu/optimizooors-lab
 
-/// @notice Customize console output
+// Customize console output
 abstract contract Labels {
     string label0 = "Reentrancy `true` `false`";
     string label1 = "Use `2` `1` instead";

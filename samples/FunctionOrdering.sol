@@ -39,10 +39,11 @@ contract OptimizedNames {
 
 contract SharedSetup is Methods {}
 
+// Unoptimized sample
 contract Sample0 is SharedSetup {
     UnoptimizedNames uNames = new UnoptimizedNames();
 
-    function unoptimized() external {
+    function measureGas() external {
         uNames.mostCalled();
         uNames.mostCalled();
         uNames.mostCalled();
@@ -55,7 +56,7 @@ contract Sample0 is SharedSetup {
 contract Sample1 is SharedSetup {
     OptimizedNames oNames = new OptimizedNames();
 
-    function optimized() external {
+    function measureGas() external {
         oNames.mostCalled_41q();
         oNames.mostCalled_41q();
         oNames.mostCalled_41q();
@@ -66,24 +67,24 @@ contract Sample1 is SharedSetup {
 }
 
 contract Sample2 is SharedSetup {
-    function optimized() external {}
+    function measureGas() external {}
 }
 
 contract Sample3 is SharedSetup {
-    function optimized() external {}
+    function measureGas() external {}
 }
 
 contract Sample4 is SharedSetup {
-    function optimized() external {}
+    function measureGas() external {}
 }
 
 contract Sample5 is SharedSetup {
-    function optimized() external {}
+    function measureGas() external {}
 }
 
 // Generated from https://github.com/ZeroEkkusu/optimizooors-lab
 
-/// @notice Customize console output
+// Customize console output
 abstract contract Labels {
     string label0 = "Functions";
     string label1 = "Prioratize by manipulating Method IDs";
