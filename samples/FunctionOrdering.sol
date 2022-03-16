@@ -42,7 +42,7 @@ contract SharedSetup is Methods {}
 contract Sample0 is SharedSetup {
     UnoptimizedNames uNames = new UnoptimizedNames();
 
-    function unoptimized() public {
+    function unoptimized() external {
         uNames.mostCalled();
         uNames.mostCalled();
         uNames.mostCalled();
@@ -55,7 +55,7 @@ contract Sample0 is SharedSetup {
 contract Sample1 is SharedSetup {
     OptimizedNames oNames = new OptimizedNames();
 
-    function optimized() public {
+    function optimized() external {
         oNames.mostCalled_41q();
         oNames.mostCalled_41q();
         oNames.mostCalled_41q();
@@ -66,19 +66,19 @@ contract Sample1 is SharedSetup {
 }
 
 contract Sample2 is SharedSetup {
-    function optimized() public {}
+    function optimized() external {}
 }
 
 contract Sample3 is SharedSetup {
-    function optimized() public {}
+    function optimized() external {}
 }
 
 contract Sample4 is SharedSetup {
-    function optimized() public {}
+    function optimized() external {}
 }
 
 contract Sample5 is SharedSetup {
-    function optimized() public {}
+    function optimized() external {}
 }
 
 // Generated from https://github.com/ZeroEkkusu/optimizooors-lab
