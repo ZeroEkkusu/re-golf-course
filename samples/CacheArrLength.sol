@@ -13,7 +13,7 @@ pragma solidity 0.8.11;
 
 // Samples for: CacheArrLength
 
-contract SharedSetup is Methods {
+contract SharedSetup {
     uint256[] arr = [uint256(1), 2, 3, 4, 5, 6, 7, 8, 9, 10];
 }
 
@@ -51,12 +51,10 @@ contract Sample5 is SharedSetup {
 
 // Customize console output
 abstract contract Labels {
-    string label0 = "Iterating through stg array";
-    string label1 = "Cache the length first";
+    string label0 = "Storage array iteration";
+    string label1 = "Cache its length";
     string label2 = "";
     string label3 = "";
     string label4 = "";
     string label5 = "";
 }
-
-import "src/biohazard/Methods.sol";

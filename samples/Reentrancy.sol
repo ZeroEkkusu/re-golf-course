@@ -13,7 +13,7 @@ pragma solidity 0.8.11;
 
 // Samples for: Reentrancy
 
-contract SharedSetup is Methods {
+contract SharedSetup {
 
 }
 
@@ -71,5 +71,3 @@ abstract contract Labels {
     string label4 = "";
     string label5 = "";
 }
-
-import "src/biohazard/Methods.sol";

@@ -13,21 +13,17 @@ pragma solidity 0.8.11;
 
 // Samples for: PayableFunctions
 
-contract SharedSetup is Methods {
+contract SharedSetup {
 
 }
 
 // Unoptimized sample
 contract Sample0 is SharedSetup {
-    function measureGas() external {
-        doSomething();
-    }
+    function measureGas() external {}
 }
 
 contract Sample1 is SharedSetup {
-    function measureGas() external payable {
-        doSomething();
-    }
+    function measureGas() external payable {}
 }
 
 contract Sample2 is SharedSetup {
@@ -57,5 +53,3 @@ abstract contract Labels {
     string label4 = "";
     string label5 = "";
 }
-
-import "src/biohazard/Methods.sol";

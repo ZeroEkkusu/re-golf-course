@@ -13,8 +13,6 @@ pragma solidity 0.8.11;
 
 // Samples for: FunctionOrdering
 
-import "src/biohazard/Methods.sol";
-
 contract UnoptimizedNames {
     // Method ID: 0x13216062
     bytes32 public occasionallyCalled;
@@ -37,7 +35,7 @@ contract OptimizedNames {
     function leastCalled() external {}
 }
 
-contract SharedSetup is Methods {}
+contract SharedSetup {}
 
 // Unoptimized sample
 contract Sample0 is SharedSetup {
@@ -87,11 +85,9 @@ contract Sample5 is SharedSetup {
 // Customize console output
 abstract contract Labels {
     string label0 = "Functions";
-    string label1 = "Prioratize by manipulating Method IDs";
+    string label1 = "Manipulate their Method IDs";
     string label2 = "";
     string label3 = "";
     string label4 = "";
     string label5 = "";
 }
-
-import "src/biohazard/Methods.sol";
