@@ -22,6 +22,6 @@ The following guidelines will help you take your A-game to **⛳ Re:Golf Course*
 
 - `World Champ` is for you to show off your golfing skills
 
-- include tests: use [**🧪 Optimizooor's Lab**](https://github.com/ZeroEkkusu/optimizooors-lab) template; provide your `Samples.sol`, but rename it first
+- include tests: use the [**🧪 Optimizooor's Lab**](https://github.com/ZeroEkkusu/optimizooors-lab) template and provide your `Samples.sol`, but rename it first
 
-- alternatively, provide a single file with tests compatible with Foundry
+- alternatively, provide a single test file compatible with Foundry
