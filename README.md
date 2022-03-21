@@ -45,6 +45,8 @@ Put code in an `unchecked` block when it is impossible for the arithmetics to un
 
 **Warning:** Using `unchecked` with code that would otherwise underflow or overflow will result in the wrapping behavior. Use with caution.
 
+  - [Full Example](samples/Unchecked.sol)
+
 ```solidity
 uint zeroToTen;
 
