@@ -39,9 +39,9 @@ for (uint256 index; index < arrLength; ++index) {}
 
 ### Use `unchecked` when the arithmetic cannot underflow / overflow
 
-With Solidity version 0.8.0 and above, a series of opcodes are added before  adding, diving, and multiplying to check for underflow and overflow.
+In Solidity version 0.8.0 and above, a series of opcodes are added before  adding, diving, and multiplying to check for underflow and overflow.
 
-Create a `unchecked` block when it is impossible for the arithmetics to underflow or overflow.
+Put code in an `unchecked` block when it is impossible for the arithmetics to underflow or overflow.
 
 **Warning:** Using `unchecked` with code that would otherwise underflow or overflow will result in the wrapping behavior. Use with caution.
 
