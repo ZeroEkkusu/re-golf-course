@@ -37,13 +37,39 @@ for (uint256 index; index < arrLength; ++index) {}
 
 ## 🧤 Golf Pro
 
+### Use `unchecked` when the arithmetic cannot underflow / overflow
+
+In Solidity version 0.8.0 and above, a series of opcodes are added before  adding, diving, and multiplying to check for underflow and overflow.
+
+Put code in an `unchecked` block when it is impossible for the arithmetics to underflow or overflow.
+
+**Warning:** Using `unchecked` with code that would otherwise underflow or overflow will result in the wrapping behavior. Use with caution.
+
+  - [Full Example](samples/Unchecked.sol)
+
+```solidity
+uint zeroToTen;
+
+// 🚩 Unoptimized
+while (zeroToTen < 10) {
+    ++zeroToTen;
+}
+
+// 🏌️ Optimized (-660 gas)
+while (zeroToTen < 10) {
+    unchecked {
+        ++zeroToTen;
+    }
+}
+```
+
 ### Make functions `payable`
 
 Making functions `payable` eliminates the need for an initial check of `msg.value == 0` and saves 21 gas.
 
 **Note:** This conservatively assumes the function could be `pure` if not for the `payable`.  When compared against a non-`pure` function the savings is 24 gas. When used with a constructor, the savings is on deployment.
 
-Adding a `payable` function where none existed previously could introduce a security risk. Use with caution.
+**Warning:** Adding a `payable` function where none existed previously could introduce a security risk. Use with caution.
 
   - [Full Example](samples/PayableFunctions.sol)
 
