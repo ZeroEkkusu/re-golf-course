@@ -20,7 +20,7 @@ A list of common Solidity optimization tips and myths.
 
 ### Make state variables `immutable` if their value never changes
 
-All references to `immutable` state variables will be replaced with the assigned values by the compiler, which removes the need to `SLOAD`.
+All references to `immutable` state variables will be replaced with the assigned values by the compiler, which will remove the need to `SLOAD`.
 
   - [Full Example](samples/Immutable.sol)
 
