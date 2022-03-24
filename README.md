@@ -18,6 +18,20 @@ A list of common Solidity optimization tips and myths.
 
 ## 🧒 Caddie
 
+### Make state variables `immutable` if their value never changes
+
+All references to `immutable` state variables will be replaced with the assigned values by the compiler, which will remove the need to `SLOAD`.
+
+  - [Full Example](samples/Immutable.sol)
+
+```solidity
+// 🚩 Unoptimized
+uint internal four = 4;
+
+// 🏌️ Optimized (-100 gas)
+uint internal immutable four = 4;
+```
+
 ### When iterating through a storage array, cache the array length first
 
 Caching the array length first saves an `SLOAD` on each iteration of the loop.
