@@ -49,6 +49,22 @@ uint256 arrLength = arr.length;
 for (uint256 index; index < arrLength; ++index) {}
 ```
 
+### For array elements, `array[index] +` is cheaper than `+=`
+
+Due to stack operations this approach is 25 gas cheaper when dealing with arrays in storage, and 4 gas cheaper for arrays in memory.
+
+  - [Full Example](samples/ArrElementAdditon.sol)
+
+```solidity
+uint256[2] public arr = [0, 0];
+
+/// 🚩 Unoptimized
+array[index] += amount;
+
+/// 🚀 Optimized (-25 gas)
+array[index] = array[index] + amount;
+```
+
 ## 🧤 Golf Pro
 
 ### Use `unchecked` when the arithmetic cannot underflow / overflow

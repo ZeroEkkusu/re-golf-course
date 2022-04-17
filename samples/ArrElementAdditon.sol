@@ -11,21 +11,21 @@ pragma solidity 0.8.11;
 //
 // Optimize! Run experiments with `forge test`.
 
-// Samples for:
+// Samples for: ArrElementAdditon
 
 contract SharedSetup {
-    uint256[2] public arr = [uint256(1), 2]; // storage
+    uint256[2] public array = [0, 0];
 }
 
 contract Sample0 is SharedSetup {
     function measureGas() external {
-        arr[0] += 1;
+        array[1] += 100;
     }
 }
 
 contract Sample1 is SharedSetup {
     function measureGas() external {
-        arr[0] = arr[0] + 1;
+        array[1] = array[1] + 100;
     }
 }
 
@@ -49,8 +49,8 @@ contract Sample5 is SharedSetup {
 
 // Customize console output
 abstract contract Labels {
-    string label0 = "";
-    string label1 = "";
+    string label0 = "Adding to an array element with `+=`";
+    string label1 = "Use `array[index] +` instead";
     string label2 = "";
     string label3 = "";
     string label4 = "";
