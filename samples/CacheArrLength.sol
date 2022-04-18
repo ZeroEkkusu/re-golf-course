@@ -13,7 +13,7 @@ pragma solidity 0.8.11;
 
 // Samples for: CacheArrLength
 
-contract SharedSetup {
+abstract contract SharedSetup {
     uint256[] arr = [uint256(1), 2, 3, 4, 5, 6, 7, 8, 9, 10];
 }
 

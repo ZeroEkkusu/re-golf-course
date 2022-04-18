@@ -13,7 +13,7 @@ pragma solidity 0.8.11;
 
 // Samples for: Unchecked
 
-contract SharedSetup {
+abstract contract SharedSetup {
 
 }
 

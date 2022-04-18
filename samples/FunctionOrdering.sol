@@ -35,7 +35,7 @@ contract OptimizedNames {
     function leastCalled() external {}
 }
 
-contract SharedSetup {}
+abstract contract SharedSetup {}
 
 // Unoptimized sample
 contract Sample0 is SharedSetup {

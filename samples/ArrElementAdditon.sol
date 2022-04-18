@@ -13,7 +13,7 @@ pragma solidity 0.8.11;
 
 // Samples for: ArrElementAdditon
 
-contract SharedSetup {
+abstract contract SharedSetup {
     uint256[2] public array = [0, 0];
 }
 
