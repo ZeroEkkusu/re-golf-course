@@ -147,3 +147,7 @@ function leastCalled() public {}
 ```
 
 # Myths
+
+### Initializing the iterator in a loop to 0 WILL NOT affect gas costs
+
+Initializing the iterator in a loop to 0, e.g. `for(uint256 index = 0; ...)`, will always be optimized.
